@@ -4,6 +4,7 @@ import { Badge } from '@workspace/dead-channel-ds/components/ui/badge';
 import { Separator } from '@workspace/dead-channel-ds/components/ui/separator';
 import { Card, CardContent, CardHeader, CardTitle } from '@workspace/dead-channel-ds/components/ui/card';
 import { ArrowUpRight, Download, Mail } from 'lucide-react';
+import { VideoBackdrop } from '@/components/video-backdrop';
 import { CONTACTS, JOBS, NAV, PDF, POSTS, PROJECTS, SKILLS, STATS } from '@/data/resume';
 
 function SectionHeader({ ch, id, title }: { ch: string; id: string; title: string }) {
@@ -45,8 +46,8 @@ function ExtLink({ href, children, testId }: { href: string; children: ReactNode
 
 export default function Home() {
   return (
-    <div className="home-root relative min-h-[100dvh] bg-background font-sans text-foreground">
-      <div aria-hidden className="crt-scanlines fixed inset-0 z-50" />
+    <div className="home-root relative isolate min-h-[100dvh] overflow-x-clip font-sans text-foreground">
+      <VideoBackdrop />
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-primary focus:px-3 focus:py-2 focus:text-primary-foreground">
         Skip to content
       </a>
@@ -111,7 +112,7 @@ export default function Home() {
         </section>
 
         {/* STATS */}
-        <section aria-label="Key numbers" className="border-b border-border">
+        <section aria-label="Key numbers" className="border-b border-border bg-background/80">
           <dl className="mx-auto grid max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {STATS.map((s, i) => (
               <div key={i} className="border-border px-4 py-8 md:px-8 sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0 border-b lg:border-b-0" data-testid={`stat-${i}`}>
