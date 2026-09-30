@@ -20,6 +20,8 @@ export function VideoBackdrop() {
   const mediaY = useTransform(scrollY, [0, 3000], [0, -220], { clamp: true });
   const mediaScale = useTransform(scrollYProgress, [0, 1], [1.08, 1.18]);
   const depthY = useTransform(scrollY, [0, 3000], [0, -90], { clamp: true });
+  const glowY = useTransform(scrollY, [0, 3000], [0, -480], { clamp: true });
+  const glowOpacity = useTransform(scrollY, [0, 900, 2400], [1, 0.55, 0.3]);
   // Vivid in the hero, receding behind dense content.
   const dim = useTransform(scrollY, [0, 700, 1400], [mobile ? 0.72 : 0.6, 0.82, 0.9]);
 
@@ -71,9 +73,14 @@ export function VideoBackdrop() {
         )}
       </motion.div>
 
-      <motion.div className="absolute inset-0 bg-background" style={{ opacity: staticOnly ? 0.8 : dim }} />
+      <motion.div className="absolute inset-0 bg-background" style={{ opacity: staticOnly ? 0.85 : dim }} />
       {/* Text-side scrim: keeps the left content column legible while the right side stays vivid. */}
       <div className="absolute inset-0 hidden bg-gradient-to-r from-background/75 via-background/45 to-transparent md:block" />
+
+      <motion.div
+        className="backdrop-glows absolute -inset-y-32 inset-x-0 will-change-transform"
+        style={staticOnly ? undefined : { y: glowY, opacity: glowOpacity }}
+      />
 
       <motion.div
         className="backdrop-vignette crt-scanlines absolute -inset-y-16 inset-x-0 will-change-transform"

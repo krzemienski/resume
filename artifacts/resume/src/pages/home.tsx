@@ -5,11 +5,16 @@ import { Separator } from '@workspace/dead-channel-ds/components/ui/separator';
 import { Card, CardContent, CardHeader, CardTitle } from '@workspace/dead-channel-ds/components/ui/card';
 import { ArrowUpRight, Download, Mail } from 'lucide-react';
 import { VideoBackdrop } from '@/components/video-backdrop';
+import { HeroScene } from '@/components/hero-scene';
+import { Drift, Reveal, ScrollProgressBar, ScrollProgressReadout } from '@/components/motion-bits';
 import { CONTACTS, JOBS, NAV, PDF, POSTS, PROJECTS, SKILLS, STATS } from '@/data/resume';
 
 function SectionHeader({ ch, id, title }: { ch: string; id: string; title: string }) {
   return (
-    <div className="mb-8 flex items-end gap-4">
+    <div className="relative mb-8 flex items-end gap-4">
+      <Drift rate={40} className="deco-layer absolute -top-10 right-0 hidden font-mono text-xs uppercase tracking-widest text-muted-foreground opacity-50 md:block">
+        sig.{id} · ch{ch} · lock<span className="text-chart-3">✓</span>
+      </Drift>
       <span className="font-mono text-xs uppercase tracking-widest text-accent">CH {ch}</span>
       <h2 id={`${id}-heading`} className="text-2xl font-semibold uppercase tracking-wider text-foreground md:text-3xl">{title}</h2>
       <div aria-hidden className="mb-2 h-px flex-1 bg-border" />
@@ -53,6 +58,7 @@ export default function Home() {
       </a>
 
       <header className="no-print sticky top-0 z-40 border-b border-border bg-background">
+        <ScrollProgressBar />
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:px-8">
           <a href="#top" data-testid="link-home" className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
             <span aria-hidden className="signal-blink inline-block h-2 w-2 bg-accent" />
@@ -66,16 +72,20 @@ export default function Home() {
               </a>
             ))}
           </nav>
+          <div className="flex items-center gap-4">
+          <ScrollProgressReadout />
           <Button asChild size="sm" data-testid="button-download-header">
             <a href={PDF} download><Download /> PDF</a>
           </Button>
+          </div>
         </div>
       </header>
 
       <main id="main" className="print-plain">
         {/* HERO */}
-        <section id="top" aria-labelledby="name-heading" className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
+        <section id="top" aria-labelledby="name-heading" className="relative overflow-hidden border-b border-border">
+          <HeroScene />
+          <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 md:px-8 md:pt-24 md:pb-36">
             <div className="mb-6 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               <span className="text-chart-4">[ REC ]</span>
               <span>New York, NY</span>
@@ -133,6 +143,7 @@ export default function Home() {
             <ol className="relative space-y-12 border-l border-border pl-6 md:pl-10">
               {JOBS.map((j, idx) => (
                 <li key={j.org} className="relative" data-testid={`job-${idx}`}>
+                  <Reveal>
                   <span aria-hidden className={`absolute -left-7 top-2 h-2 w-2 md:-left-11 ${idx === 0 ? 'bg-accent' : idx === 2 ? 'bg-chart-3' : 'bg-primary'}`} />
                   <div className="grid gap-4 md:grid-cols-4">
                     <div className="font-mono text-xs uppercase tracking-widest text-muted-foreground md:pt-1">
@@ -163,6 +174,7 @@ export default function Home() {
                       )}
                     </div>
                   </div>
+                  </Reveal>
                 </li>
               ))}
             </ol>
@@ -174,8 +186,9 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-4 py-16 md:px-8">
             <SectionHeader ch="02" id="open-source" title="Open Source & Writing" />
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {PROJECTS.map((p) => (
-                <a key={p.name} href={p.url} target="_blank" rel="noreferrer" data-testid={`link-project-${p.name.toLowerCase().replace(/\W/g, '-')}`} className="group block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
+              {PROJECTS.map((p, pi) => (
+                <Reveal key={p.name} delay={(pi % 3) * 0.08}>
+                <a href={p.url} target="_blank" rel="noreferrer" data-testid={`link-project-${p.name.toLowerCase().replace(/\W/g, '-')}`} className="group block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring">
                   <Card className="h-full transition-colors group-hover:border-primary">
                     <CardHeader>
                       <CardTitle className="flex items-center justify-between text-xl">
@@ -187,8 +200,9 @@ export default function Home() {
                     <CardContent className="text-sm leading-relaxed text-muted-foreground">{p.desc}</CardContent>
                   </Card>
                 </a>
+                </Reveal>
               ))}
-              <Card className="h-full border-accent">
+              <Reveal delay={0.16}><Card className="h-full border-accent">
                 <CardHeader>
                   <CardTitle className="text-xl">Field journal</CardTitle>
                   <span className="font-mono text-xs uppercase tracking-widest text-accent">Selected posts</span>
@@ -200,7 +214,7 @@ export default function Home() {
                     ))}
                   </ul>
                 </CardContent>
-              </Card>
+              </Card></Reveal>
             </div>
           </div>
         </section>
@@ -210,13 +224,13 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-4 py-16 md:px-8">
             <SectionHeader ch="03" id="skills" title="Skills" />
             <dl className="divide-y divide-border border-y border-border">
-              {SKILLS.map((s) => (
-                <div key={s.group} className="grid gap-3 py-5 md:grid-cols-4">
+              {SKILLS.map((s, si) => (
+                <Reveal key={s.group} delay={si * 0.05} className="grid gap-3 py-5 md:grid-cols-4">
                   <dt className="font-mono text-xs uppercase tracking-widest text-primary md:pt-1">{s.group}</dt>
                   <dd className="flex flex-wrap gap-2 md:col-span-3">
                     {s.items.map((it) => <Badge key={it} variant="secondary" className="font-mono">{it}</Badge>)}
                   </dd>
-                </div>
+                </Reveal>
               ))}
             </dl>
           </div>

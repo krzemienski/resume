@@ -56,8 +56,9 @@ html { scroll-behavior: smooth; }
   @page { size: Letter; margin: 0.5in; }
   html:has(.home-root), html:has(.home-root) body { background: hsl(var(--background)); }
   .home-root { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .home-root .no-print, .home-root .crt-scanlines, .home-root .video-backdrop { display: none !important; }
+  .home-root .no-print, .home-root .crt-scanlines, .home-root .video-backdrop, .home-root .hero-scene, .home-root .deco-layer { display: none !important; }
   .home-root .glitch::after, .home-root .glitch::before { display: none; }
+  .home-root .reveal { opacity: 1 !important; transform: none !important; }
   .home-root section { break-inside: auto; }
   .home-root li, .home-root .grid > * { break-inside: avoid; }
   .home-root a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.75em; }
@@ -99,4 +100,39 @@ html { scroll-behavior: smooth; }
 /* Vignette for the home video backdrop (media layer only). */
 .backdrop-vignette {
   box-shadow: inset 0 0 18vmax 6vmax hsl(var(--background) / 0.9);
+}
+
+/* ---------- Home hero scene (decorative) ---------- */
+.video-backdrop video, .video-backdrop img { filter: saturate(0.8) contrast(0.9); }
+
+.backdrop-glows {
+  background:
+    radial-gradient(40vmax 30vmax at 0% 8%, hsl(var(--primary) / 0.22), transparent 70%),
+    radial-gradient(38vmax 30vmax at 100% 18%, hsl(var(--accent) / 0.2), transparent 70%),
+    radial-gradient(34vmax 26vmax at 85% 95%, hsl(var(--chart-3) / 0.14), transparent 70%);
+}
+@keyframes glow-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+.backdrop-glows { animation: glow-breathe 12s ease-in-out infinite; }
+
+.scene-grid {
+  opacity: 0.35;
+  background-image:
+    linear-gradient(to right, hsl(var(--border)) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border)) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 60% 40%, hsl(var(--foreground)) 20%, transparent 75%);
+}
+
+@keyframes lane-scroll { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+.lane-track { animation: lane-scroll 60s linear infinite; }
+.lane-slow { animation-duration: 90s; }
+.lane-mid { animation-duration: 60s; }
+.lane-fast { animation-duration: 38s; }
+.hero-scene.is-paused .lane-track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lane-track, .backdrop-glows { animation: none; }
+}
+.lane-band {
+  mask-image: linear-gradient(to right, transparent, hsl(var(--foreground)) 12%, hsl(var(--foreground)) 88%, transparent);
 }
