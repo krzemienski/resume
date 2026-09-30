@@ -192,7 +192,7 @@ export type NavGroup = {
 export const DESIGN_SYSTEM = {
   title: 'Dead Channel',
   description:
-    'Flat-black cyberpunk: a CRT tuned to nothing. Pure black surfaces, one signal-cyan live wire, a glitch-magenta accent used sparingly, sharp corners, and monospace readouts. Dark is canonical; light is the printout mode.',
+    'Flat-black cyberpunk: a CRT tuned to nothing. Pure black surfaces, a crimson live signal, an electric-violet accent used sparingly, orange and red heat, sharp corners, and monospace readouts. Dark is canonical; light is the printout mode.',
 } as const;
 
 export const OVERVIEW_ENTRY: PreviewEntry = {

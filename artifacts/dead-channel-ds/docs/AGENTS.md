@@ -9,9 +9,11 @@ on it and import its theme and components directly.
 
 "Dead Channel": a CRT tuned to nothing. **Dark mode is canonical** — consumers
 should render with `class="dark"` on `<html>` by default; light is a derived
-"printout" mode. Flat black surfaces (no gradients), `primary` signal cyan as the
-single live color, `accent` glitch magenta used sparingly (markers, highlights,
-interference), sharp 0 radius, Chakra Petch for UI/body, JetBrains Mono for
+"printout" mode. Flat black surfaces, `primary` crimson as the
+live signal color, `accent` electric violet used sparingly (markers, highlights,
+interference), `chart-3` arc orange / `chart-4` hot red for heat accents. No blue or
+teal anywhere. Flat UI surfaces; the only permitted color blends live inside
+background media (video/imagery), never in component fills. sharp 0 radius, Chakra Petch for UI/body, JetBrains Mono for
 readouts, dates, labels and metadata. Scanline/glitch effects must be restrained,
 decorative only, and respect `prefers-reduced-motion`.
 

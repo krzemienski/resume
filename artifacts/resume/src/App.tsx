@@ -2,6 +2,7 @@ import { type ReactNode } from 'react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@workspace/dead-channel-ds/components/ui/toaster';
 import Home from '@/pages/home';
+import PrintResume from '@/pages/print';
 import NotFound from '@/pages/not-found';
 import {
   Route,
@@ -17,6 +18,7 @@ function Router() {
     <RoutedErrorBoundary>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/print" component={PrintResume} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
