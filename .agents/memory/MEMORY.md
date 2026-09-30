@@ -1,1 +1,2 @@
 - [Dead Channel DS conventions](dead-channel-ds.md) — dark canonical, zero radius (edit theme-template + `pnpm tokens`), resume content source = latest PDF.
+- [Site backdrop video](site-backdrop-video.md) — calm loop on all devices incl. portrait; never edit the artifact mid-render.

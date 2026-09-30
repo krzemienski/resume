@@ -1,0 +1,29 @@
+kind = "video"
+videoAspectRatio = "16:9"
+previewPath = "/signal-backdrop/"
+title = "Signal Backdrop"
+description = "Calm, ever-changing abstract background loop for the resume site, rendered to video."
+version = "1.0.0"
+id = "artifacts/signal-backdrop"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/signal-backdrop/" ]
+localPort = 24200
+
+[services.development]
+run = "pnpm --filter @workspace/signal-backdrop run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/signal-backdrop", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/signal-backdrop/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24200"
+BASE_PATH = "/signal-backdrop/"
