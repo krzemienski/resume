@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nick Krzemienski — Resume</title>
+<style>
+/*FONTS*/
+:root{
+  --ink:#16181d; --body:#2b2f36; --muted:#646b76; --rule:#dfe2e7;
+  --accent:#b4532a; --accent-soft:#f6ece6;
+}
+@page{ size: Letter; margin: 0.5in 0.58in 0.5in 0.58in; }
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; background:#fff; }
+body{ font-family:"Inter",sans-serif; font-size:9.35pt; line-height:1.42; color:var(--body);
+  -webkit-print-color-adjust:exact; print-color-adjust:exact; font-feature-settings:"ss01","cv11"; }
+a{ color:inherit; text-decoration:none; }
+
+header{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
+  padding-bottom:10px; border-bottom:2px solid var(--ink); }
+h1{ font-family:"Source Serif 4",serif; font-weight:700; font-size:27pt; letter-spacing:-0.4px;
+  line-height:1; margin:0; color:var(--ink); }
+.title{ margin-top:5px; font-size:10.5pt; font-weight:600; color:var(--accent); letter-spacing:.1px; }
+.contact{ text-align:right; font-size:8.4pt; line-height:1.55; color:var(--muted); white-space:nowrap; }
+.contact b{ color:var(--ink); font-weight:600; }
+
+.summary{ margin:11px 0 0; font-family:"Source Serif 4",serif; font-size:10.4pt; line-height:1.5; color:var(--ink); }
+
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; margin:12px 0 2px;
+  border:1px solid var(--rule); border-radius:4px; background:#fbfbfc; }
+.stat{ padding:7px 11px; border-left:1px solid var(--rule); }
+.stat:first-child{ border-left:none; }
+.stat .n{ font-family:"Source Serif 4",serif; font-weight:700; font-size:14pt; color:var(--accent); line-height:1.1; }
+.stat .l{ font-size:7.6pt; color:var(--muted); line-height:1.3; margin-top:2px; }
+
+h2{ font-size:8pt; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; color:var(--accent);
+  margin:15px 0 6px; display:flex; align-items:center; gap:10px; }
+h2::after{ content:""; flex:1; height:1px; background:var(--rule); }
+
+.job{ margin:0 0 9px; break-inside:avoid; }
+.job-head{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.org{ font-weight:700; color:var(--ink); font-size:10pt; }
+.role{ font-weight:500; color:var(--ink); }
+.org .sep{ color:var(--muted); font-weight:400; padding:0 4px; }
+.when{ font-size:8.4pt; color:var(--muted); white-space:nowrap; font-variant-numeric:tabular-nums; }
+.lede{ margin:2px 0 3px; color:var(--muted); font-style:italic; font-family:"Source Serif 4",serif; font-size:9.6pt; }
+ul{ margin:3px 0 0; padding-left:13px; }
+li{ margin:0 0 2.5px; padding-left:2px; }
+li::marker{ color:var(--accent); }
+strong{ color:var(--ink); font-weight:600; }
+
+.sub{ margin:6px 0 0 0; padding-left:11px; border-left:2px solid var(--accent-soft); }
+.sub .job-head{ font-size:9.35pt; }
+.sub .role{ font-weight:600; }
+.sub + .sub{ margin-top:7px; }
+
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:4px 22px; }
+.oss dt{ font-weight:700; color:var(--ink); }
+.oss dt code{ font-family:"JetBrains Mono",monospace; font-weight:400; font-size:7.6pt; color:var(--muted); margin-left:5px; }
+.oss dd{ margin:0 0 5px; }
+dl{ margin:0; }
+
+.skills{ display:grid; grid-template-columns:92px 1fr; gap:3px 12px; }
+.skills dt{ font-weight:600; color:var(--ink); }
+.skills dd{ margin:0; }
+
+.compact .job{ margin-bottom:6px; }
+.compact .job-head .org{ font-size:9.35pt; }
+.page-break{ break-before:page; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Nick Krzemienski</h1>
+    <div class="title">Agentic Engineer &nbsp;·&nbsp; Principal, WithAgents &nbsp;·&nbsp; 12+ years shipping production software</div>
+  </div>
+  <div class="contact">
+    <b>New York, NY</b> · 914-649-5534<br>
+    <a href="mailto:krzemienski@gmail.com">krzemienski@gmail.com</a><br>
+    <a href="https://withagents.dev">withagents.dev</a> · <a href="https://github.com/krzemienski">github.com/krzemienski</a><br>
+    <a href="https://www.linkedin.com/in/krzemienski">linkedin.com/in/krzemienski</a> · <a href="https://awesome.video">awesome.video</a>
+  </div>
+</header>
+
+<p class="summary">
+I build the harnesses that make AI coding agents trustworthy in real codebases: validation gates, multi-agent consensus, and planning loops that refuse to ship without evidence. Before agents, I spent seven years at fuboTV building streaming-video infrastructure at production scale — encoding pipelines, just-in-time transcoding, multi-view for live sports — and before that I founded two software studios. I've led teams of ten and still write the code. Former USMC Infantry Squad Leader (Sergeant).
+</p>
+
+<div class="stats">
+  <div class="stat"><div class="n">23,479</div><div class="l">real Claude Code sessions mined across 27 projects</div></div>
+  <div class="stat"><div class="n">~500 hrs/day</div><div class="l">VOD content through the pipeline I owned at fuboTV</div></div>
+  <div class="stat"><div class="n">~70%</div><div class="l">transcoding cost cut vs. on-demand cloud compute</div></div>
+  <div class="stat"><div class="n">4,200+</div><div class="l">readers of the WithAgents field journal</div></div>
+</div>
+
+<h2>Experience</h2>
+
+<div class="job">
+  <div class="job-head">
+    <div class="org">WithAgents<span class="sep">—</span><span class="role">Principal</span></div>
+    <div class="when">May 2026 – Present · New York</div>
+  </div>
+  <div class="lede">A product practice and field journal on applied agent design, built on Claude Code and the Claude Agent SDK.</div>
+  <ul>
+    <li>Ship open-source verification tooling for coding agents: <strong>Crucible</strong> (10-phase refusal-driven verification, 3 independent reviewers + 3 oracle auditors, no override), <strong>Consensus</strong> (3 agents must vote PASS unanimously), <strong>Orbit</strong> (detects drift between what was asked, planned, claimed, and shipped), and <strong>Lynx</strong> (visual audits of live web UIs).</li>
+    <li>Take contract engagements with enterprise and startup teams that need agent-written code to go from demo to production.</li>
+    <li>Write a daily field journal (since May 2026): 43 lessons drawn from 23,479 Claude Code sessions, each a real codebase, a real failure mode, and the harness that fixed it.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="org">Independent<span class="sep">—</span><span class="role">Agentic Engineering R&amp;D</span></div>
+    <div class="when">2024 – 2026 · New York</div>
+  </div>
+  <ul>
+    <li>Left fuboTV to spend two years building with coding agents full-time, inside real codebases across Python, TypeScript, Next.js, Swift/iOS and Go.</li>
+    <li>Built the patterns that became WithAgents: harnesses that reject mocks, test-file theater and "it compiled" claims in favor of validation against the running system; consensus gates that need ≥2 independent PASS verdicts; spec-driven planning loops; and skill systems that encode senior review judgment as reusable agent behavior.</li>
+    <li>Built multi-agent orchestration with fan-out/fan-in, bounded concurrency, and stateful pipelines that resume after failure.</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="org">fuboTV</div>
+    <div class="when">May 2017 – May 2024 · New York</div>
+  </div>
+
+  <div class="sub">
+    <div class="job-head"><div class="role">Engineering Lead, Video Innovations</div><div class="when">Mar 2022 – May 2024</div></div>
+    <ul>
+      <li>Led <strong>server-side multi-view</strong>: several live feeds composited into a single player surface for live sports.</li>
+      <li>Built <strong>just-in-time transcoding and HLS packaging</strong> for HEVC sources on Kubernetes (autoscaling, stateful sets, persistent volumes), which shrank storage and sped up catalog turnover at the same picture quality.</li>
+    </ul>
+  </div>
+
+  <div class="sub">
+    <div class="job-head"><div class="role">Engineering Lead, VOD Encoding &amp; Operations</div><div class="when">Nov 2018 – Mar 2022</div></div>
+    <ul>
+      <li>Owned the VOD pipeline end to end (<strong>~500 hours of content a day</strong>): ingest, bitrate-ladder transcoding, and HLS + DASH packaging with DRM.</li>
+      <li>Cut transcoding and packaging cost by <strong>~70%</strong> against on-demand compute by moving the work to AWS Spot Instances and containers.</li>
+      <li>Shipped multi-codec delivery (H.264, HEVC, VP9, including 4K), with a serverless CDN edge that picks codecs by device capability, so new codecs could roll out safely.</li>
+      <li>Built live-to-VOD generation from linear streams, CableLabs metadata validation, and CEA-608/708 caption sidecars, with alerting on every pipeline failure point.</li>
+    </ul>
+  </div>
+
+  <div class="sub">
+    <div class="job-head"><div class="role">Engineering Manager, Roku &amp; Apple TV</div><div class="when">Feb 2018 – Nov 2018</div></div>
+    <ul>
+      <li>Hired and led <strong>10 engineers</strong> while still contributing code. Owned both platform roadmaps and the Apple and Roku partner relationships.</li>
+      <li>Built a device-farm test harness and Jira workflow automation, and helped deliver the first 4K live OTT feed during World Cup 2018.</li>
+    </ul>
+  </div>
+
+  <div class="sub">
+    <div class="job-head"><div class="role">Software Engineer, iOS</div><div class="when">May 2017 – Feb 2018</div></div>
+    <ul>
+      <li>Rewrote the Swift player framework on AVFoundation, cutting third-party SDK dependencies, and built in-app billing for iTunes and Roku subscriptions.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<div class="compact">
+  <div class="job">
+    <div class="job-head">
+      <div class="org">Koda Labs<span class="sep">—</span><span class="role">Founder &amp; Principal Developer</span></div>
+      <div class="when">Oct 2013 – May 2017 · New York</div>
+    </div>
+    <ul>
+      <li>Ran a software studio: led 3 developers plus contractors through 15+ client projects. Built AWS-backed APIs and WebRTC video/text chat, and shipped 4 Unity games with over 1M users.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="org">Majestyk Apps<span class="sep">—</span><span class="role">Co-Founder &amp; Managing Director</span></div>
+      <div class="when">Oct 2011 – Sep 2013 · New York</div>
+    </div>
+    <ul>
+      <li>Led 4 developers and 2 designers across 20+ projects for clients including Disney. Shipped an app-connected plush toy sold at Toys"R"Us and managed its factory production in China. Built a mobile POS on NetSuite.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="org">Shodogg<span class="sep">—</span><span class="role">Mobile Developer</span></div>
+      <div class="when">Dec 2011 – Sep 2012 · New York</div>
+    </div>
+    <ul>
+      <li>Built mobile-to-screen media delivery using HLS and byte-level H.264, and shipped a reusable iOS framework for other developers.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="org">U.S. Marine Corps Reserve<span class="sep">—</span><span class="role">Infantry Squad Leader, Sergeant</span></div>
+      <div class="when">Dec 2008 – Jan 2015 · 2/25 Weapons Co.</div>
+    </div>
+    <ul>
+      <li>Responsible for the safety, training and performance of the Marines in my squad, and for coordinating weapons employment on missions and patrols. Promoted to Sergeant in under four years.</li>
+    </ul>
+  </div>
+</div>
+
+<h2>Open Source &amp; Writing</h2>
+<div class="grid2">
+  <dl class="oss">
+    <dt>Crucible <code>withagents.dev/crucible</code></dt>
+    <dd>Refusal-driven verification for Claude Code. Nothing ships without independent reviewers and oracle audits agreeing.</dd>
+    <dt>Consensus <code>withagents.dev/consensus</code></dt>
+    <dd>Multi-agent agreement gate. Three independent agents must vote PASS; 2 of 3 is not enough.</dd>
+    <dt>Orbit <code>withagents.dev/orbit</code></dt>
+    <dd>Finds drift between what you asked for, what was planned, what was claimed, and what shipped.</dd>
+  </dl>
+  <dl class="oss">
+    <dt>Lynx <code>withagents.dev/lynx</code></dt>
+    <dd>Visual-audit suite for live web UIs.</dd>
+    <dt>awesome.video <code>awesome.video</code></dt>
+    <dd>Curated index of streaming-video tooling and standards, widely used across the industry.</dd>
+    <dt>Field journal, selected posts</dt>
+    <dd><em>3 Agents Found the Bug 1 Agent Missed</em> · <em>I Banned Unit Tests and Shipped Faster</em> · <em>Crucible: Refusal-Driven Verification for Claude Code</em></dd>
+  </dl>
+</div>
+
+<h2>Skills</h2>
+<dl class="skills">
+  <dt>Agents</dt><dd>Claude Code, Claude Agent SDK, multi-agent orchestration, validation and evaluation harnesses, consensus gates, skill systems, spec-driven planning</dd>
+  <dt>Languages</dt><dd>Python, TypeScript, Go, Swift, SQL</dd>
+  <dt>Infrastructure</dt><dd>AWS (incl. Spot), Kubernetes, Docker, serverless CDN edge, alerting and on-call pipelines</dd>
+  <dt>Video</dt><dd>FFmpeg, HLS, DASH, DRM, H.264 / HEVC / VP9, JIT transcoding and packaging, AVFoundation, Roku, tvOS</dd>
+  <dt>Web &amp; mobile</dt><dd>Next.js, iOS / tvOS, WebRTC</dd>
+</dl>
+
+<h2>Education &amp; Community</h2>
+<div class="job-head" style="margin-bottom:3px">
+  <div><strong>Iona College</strong> — B.S., Computer Science</div>
+</div>
+<div>Teaching Vets to Code: mentoring veterans moving into software engineering.</div>
+
+</body>
+</html>

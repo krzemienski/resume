@@ -1,0 +1,1 @@
+- [Dead Channel DS conventions](dead-channel-ds.md) — dark canonical, zero radius (edit theme-template + `pnpm tokens`), resume content source = latest PDF.

@@ -1,0 +1,19 @@
+kind = "design-system"
+previewPath = "/dead-channel-ds/"
+title = "Dead Channel Design System"
+description = "A flat-black cyberpunk design system for Nick Krzemienski's personal resume site: pure black surfaces, phosphor-cyan signal color, hot-magenta glitch accent, sharp corners, terminal-style monospace readouts."
+version = "1.0.0"
+id = "artifacts/dead-channel-ds"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/dead-channel-ds/" ]
+localPort = 20240
+
+[services.development]
+run = "pnpm --filter @workspace/dead-channel-ds run dev"
+
+[services.env]
+PORT = "20240"
+BASE_PATH = "/dead-channel-ds/"
